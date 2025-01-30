@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="flex justify-center items-center h-screen font-mono bg-black">
+    <div class="timer-container text-center bg-white p-20 rounded-xl shadow-md w-xs">
+        <h1 class="mb-10 text-4xl font-black font-[Open_Sans] text-pink-400 border-solid border-red-950">PROMODORO</h1>
+        <div id="timer" class="timer text-4xl text-red-600 text-center bold">25:00</div>
+        <div class="settings mb-10 flex justify-around">
+            <div class="time-input flex flex-col gap-4 m-2">
+                <label htmlFor="work-time" class="text-md">Work (mins):</label>
+                <input type="number" class="bg-gray-100 rounded-lg text-center h-8 border-solid border-2" id="work-time" value="2" min="1">
+            </div>
+            <div class="time-input flex flex-col gap-4 m-2">
+                <label htmlFor="break-time" class="text-md">Break (mins):</label>
+                <input type="number" class="bg-gray-100 rounded-lg w-3xl text-center h-8 border-solid border-2" id="break-time" value="1" min="1">
+            </div>
+        </div>
+        <div class="controls flex justify-between">
+            <button class="bg-blue-600 w-32 text-white m-4" id="start-btn">
+                <i class="fas fa-play"></i> Start
+            </button>
+            <button class="bg-blue-600 w-36 text-white m-4" id="pause-btn" disabled>
+                <i class="fas fa-pause"></i> Pause
+            </button>
+            <button class="bg-blue-600 w-36 text-white m-4" id="reset-btn" disabled>
+                <i class="fas fa-redo"></i> Reset
+            </button>
+        </div>
+        <audio src="alarm.wav" id="alarm-sound"></audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
