@@ -10,81 +10,66 @@
             background-image: url('img/marc.jpg');
             background-size: cover;
             background-position: center;
-        } 
+        }
+        .bg-black-transparent {
+            background-color: rgba(0, 0, 0, 0.6); /* لون أسود بخلفية شفافة */
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen py-10">
-    <div class="w-full max-w-4xl rounded-lg p-4 form-bg bg-white/30 bg-gray-100 bg-white/20 backdrop-blur-sm">
-       
-
-        <div class="bg-black  backdrop-opacity-10 p-4 rounded-lg">
-            <h1 class="text-2xl font-bold text-black mb-4 text-center  bg-gray-100">TO-DO LIST</h1>
-            <div class="flex justify-end mb-4">
-                <button class="bg-blue-600 hover:bg-indigo-700 transition-colors duration-300 rounded-lg text-white w-32 p-2 shadow-md mb-6 text-sm" id="start">START</button>
-            </div>
-            <form id="task-form" class="bg-gray-50 p-3 rounded-lg shadow-md">
-                <input id="task-title" type="text" placeholder="Titre" class="border p-2 w-full mb-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm" required>
-                <input id="task-description" type="text" placeholder="Description" class="border p-2 w-full mb-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm">
-                <select id="task-priority" class="border p-2 w-full mb-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm">
-                    <option value="Basse">Basse</option>
-                    <option value="Moyenne">Moyenne</option>
-                    <option value="Haute">Haute</option>
-                </select>
-                <div class="flex justify-center gap-3 mt-3">
-                    <button type="button" class="bg-blue-600 hover:bg-teal-700 transition-colors duration-300 text-white p-2 w-28 rounded-md shadow-md text-sm" id="btnAjouterTodo">
-                        Ajouter
-                    </button>
-                    <button type="button" class="bg-red-600 hover:bg-red-700 transition-colors duration-300 text-white p-2 w-28 rounded-md shadow-md text-sm" id="btnAnnulerTodo">
-                        Annuler
-                    </button>
+    <div class="w-full max-w-4xl rounded-lg p-4 ">
+        <div class="bg-black-transparent backdrop-opacity-10 p-4 rounded-lg">
+            <h1 class="text-4xl font-bold text-blue-400 mb-4 text-center  py-5">TO-DO LIST</h1>
+            <form id="task-form" class=" p-3 rounded-lg shadow-md">
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 mb-2">
+                    <input id="task-title" type="text" placeholder="Titre" class="border ml-4 p-2 w-60  rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm" required>
+                    <input id="task-description" type="text" placeholder="Description" class="flex justify-center border p-2 w-60 mb-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm">
+                    <select id="task-priority" class="border p-2 w-60 mb-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 text-sm">
+                        <option value="Basse">Basse</option>
+                        <option value="Moyenne">Moyenne</option>
+                        <option value="Haute">Haute</option>
+                    </select>
+                </div>
+                <div class="text-center mb-5">
+                    <h2 id="task-title-display" class="text-xl font-bold text-gray-700"></h2>
+                    <p id="task-desc-display" class="text-gray-500"></p>
+                </div>
+                <div class="flex justify-center gap-4 mt-3">
+                    <button type="button" class="bg-blue-900 hover:bg-blue-400 transition-colors duration-900 text-white  ml-4 mt-4 p-2 w-28 rounded-md shadow-md text-sm" id="btnAjouterTodo">Ajouter</button>
+                    <button type="button" class="bg-pink-700 text-white py-2 ml-4 mt-4 rounded hover:bg-pink-900 transition-colors duration-300 text-white p-2 w-28 rounded-md shadow-md text-sm" id="btnAnnulerTodo">Annuler</button>
                 </div>
             </form>
         </div>
-
-        <div class=" bg-black flex flex-col lg:flex-row gap-4 mt-5">
+        <div class="bg-black-transparent flex flex-col lg:flex-row gap-4 mt-5">
             <div class="lg:w-1/2 m-5">
                 <label class="text-2xl font-semibold block mb-4 text-center text-white">Task Filter</label>
                 <div class="flex flex-wrap justify-center gap-3 bg-gray-50 p-3 rounded-lg shadow-md form-bg">
-                    <label class="flex flex-col items-center flex-1 p-2 border border-blue-300 rounded cursor-pointer hover:bg-black text-white transition-colors duration-300 text-sm">
+                    <label class="flex flex-col items-center flex-1 p-2 border border-blue-300 rounded cursor-pointer   hover:bg-green-100 text-black transition-colors duration-300 text-sm">
                         <input type="radio" name="filter" id="allTasks" class="hidden">
-                        <span class="text-md font-medium text-blue-600">All Tasks</span>
+                        <span class="text-md font-medium text-black">All Tasks</span>
                     </label>
-                    <label class="flex flex-col items-center flex-1 p-2 border border-blue-300 rounded cursor-pointer hover:bg-black transition-colors duration-300 text-sm">
+                    <label class="flex flex-col items-center flex-1 p-2 border border-blue-300 rounded cursor-pointer   hover:bg-green-100 text-black  transition-colors duration-300 text-sm">
                         <input type="radio" name="filter" id="finishedTasks" class="hidden">
-                        <span class="text-md font-medium text-blue-600">Finished Tasks</span>
+                        <span class="text-md font-medium text-black">Finished Tasks</span>
                     </label>
-                    <label class="flex flex-col items-center flex-1 p-2 border border-blue-300 rounded cursor-pointer hover:bg-black transition-colors duration-300 text-sm">
+                    <label class="flex flex-col items-center flex-1 p-2 border border-blue-300 rounded cursor-pointer  hover:bg-green-100 text-black  transition-colors duration-300 text-sm">
                         <input type="radio" name="filter" id="notFinishedTasks" class="hidden">
-                        <span class="text-md font-medium text-blue-600">Not Finished</span>
+                        <span class="text-md font-medium text-black">Not Finished</span>
                     </label>
                 </div>
                 <div class="flex justify-between gap-3 mt-3">
-                    <button class="bg-red-600 hover:bg-red-700 transition-colors duration-300 text-white p-2 w-1/2 rounded-md shadow-md text-sm" id="clear-all">Clear all tasks</button>
-                    <button class="bg-blue-600 hover:bg-indigo-700 transition-colors duration-300 text-white p-2 w-1/2 rounded-md shadow-md text-sm" id="clear-finished">Clear finished tasks</button>
+                    <button class="bg-green-600 hover:bg-green-900 text-white duration-300  transition-colors duration-300 text-white p-2 w-1/2 rounded-md shadow-md text-sm" id="clear-all">Clear all tasks</button>
+                    <button class="bg-green-600 hover:bg-green-900  transition-colors duration-300 text-white p-2 w-1/2 rounded-md shadow-md text-sm" id="clear-finished">Clear finished tasks</button>
                 </div>
             </div>
-
-            <div class="lg:w-1/2  m-5 ">
-                <h2 class="text-2xl font-semibold block mb-4 text-center text-white ">Tasks</h2>
-                <div class="bg-gray-50 p-2 rounded-lg shadow-md form-bg">
-                
-                        <div class="flex justify-between items-center p-2 border border-gray-300 rounded mb-2 shadow-sm">
-
-
-                        <div>
-                            <div class="text-gray-500 text-lg">Task Title</div>
-                            <div class="text-gray-500 text-sm">Due Date</div>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="bg-indigo-600 hover:bg-indigo-700 transition-colors duration-300 text-white p-2 rounded-md w-14 text-xs">Edit</button>
-                            <button class="bg-red-600 hover:bg-red-700 transition-colors duration-300 text-white p-2 rounded-md w-14 text-xs">Delete</button>
-                        </div>
-                    </div>
+            <div class="lg:w-1/2 m-5">
+                <h2 class="text-2xl font-semibold block mb-4 text-center text-white">Tasks</h2>
+                <div class="bg-gray-50 p-2 rounded-lg shadow-md form-bg" id="task-list">
+                    <!-- Tasks will be added here by JavaScript -->
                 </div>
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
